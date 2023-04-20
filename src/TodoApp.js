@@ -21,27 +21,27 @@ function TodoApp({ initialTodos }) {
 
   /** add a new todo to list */
   function create(newTodo) {
-    setTodos((t) => [...todos, { ...newTodo, id: uuid() }]);
+    setTodos((t) => [...t, { ...newTodo, id: uuid() }]);
   }
 
   /** update a todo with updatedTodo */
   function update(updatedTodo) {
     setTodos((t) =>
-      todos.map((t) => (t.id === updatedTodo.id ? updatedTodo : t))
+      t.map((t) => (t.id === updatedTodo.id ? updatedTodo : t))
     );
   }
 
   /** delete a todo by id */
   function remove(id) {
-    setTodos(t => todos.filter(t => t.id !== id));
+    setTodos(t => t.filter(t => t.id !== id));
   }
   return (
     <main className="TodoApp">
       <div className="row">
         <div className="col-md-6">
-          {todos.length > 0 ?
-            <EditableTodoList todos={todos} update={update} remove={remove} /> :
-            <span className="text-muted">You have no todos.</span>}
+          {todos.length > 0 
+            ? <EditableTodoList todos={todos} update={update} remove={remove} /> 
+            : <span className="text-muted">You have no todos.</span>}
         </div>
 
         <div className="col-md-6">

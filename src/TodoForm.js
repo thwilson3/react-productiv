@@ -12,18 +12,19 @@ import EditableTodo from "./EditableTodo";
  */
 
 function TodoForm({ initialFormData, handleSave }) {
+
   const emptyFormData = {
     title: "",
     description: "",
     priority: 1
   }
-
   const [formData, setFormData] = useState(initialFormData || emptyFormData);
 
   /** Update form input. */
   function handleChange(evt) {
     const fieldName = evt.target.name;
     const value = evt.target.value;
+
     setFormData(currData => {
       currData[fieldName] = value;
       return { ...currData };
@@ -33,7 +34,8 @@ function TodoForm({ initialFormData, handleSave }) {
   /** Call parent function and clear form. */
   function handleSubmit(evt) {
     evt.preventDefault();
-    handleSave(formData);
+
+    handleSave({...formData, priority: Number(formData.priority)});
     setFormData(emptyFormData);
   }
 
