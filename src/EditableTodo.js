@@ -8,7 +8,7 @@ import TodoForm from "./TodoForm";
  * - todo
  * - update(): fn to call to update a todo
  * - remove(): fn to call to remove a todo
- * 
+ *
  * State
  * - isEditing: determines whether to show form or not
  *
@@ -42,6 +42,7 @@ function EditableTodo({ todo, update, remove }) {
           <div className="mb-3">
             <div className="float-end text-sm-end">
               <button
+                id={`edit-button-${todo.id}`}
                 className="EditableTodo-toggle btn-link btn btn-sm"
                 onClick={toggleEdit}
               >

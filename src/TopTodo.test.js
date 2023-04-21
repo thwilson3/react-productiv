@@ -12,9 +12,8 @@ describe("TopTodo", function () {
     });
 
     it("shows the highest priority todo", function () {
-        render(<TopTodo todos={initialTodos} />);
-        const { container } = render(<Todo todo={initialTodos[1]} />);
-        expect(container).toBeInTheDocument()
+        const result = render(<TopTodo todos={initialTodos} />);
+        expect(result.queryByText(initialTodos[1].title)).toBeInTheDocument()
     });
 
     it("doesn't render if no todos", function () {

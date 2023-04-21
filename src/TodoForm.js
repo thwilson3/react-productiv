@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import EditableTodo from "./EditableTodo";
 
-
 /** Form for adding.
  *
  * Props:
@@ -12,12 +11,11 @@ import EditableTodo from "./EditableTodo";
  */
 
 function TodoForm({ initialFormData, handleSave }) {
-
   const emptyFormData = {
     title: "",
     description: "",
-    priority: 1
-  }
+    priority: 1,
+  };
   const [formData, setFormData] = useState(initialFormData || emptyFormData);
 
   /** Update form input. */
@@ -25,7 +23,7 @@ function TodoForm({ initialFormData, handleSave }) {
     const fieldName = evt.target.name;
     const value = evt.target.value;
 
-    setFormData(currData => {
+    setFormData((currData) => {
       currData[fieldName] = value;
       return { ...currData };
     });
@@ -35,13 +33,16 @@ function TodoForm({ initialFormData, handleSave }) {
   function handleSubmit(evt) {
     evt.preventDefault();
 
-    handleSave({...formData, priority: Number(formData.priority)});
+    handleSave({ ...formData, priority: Number(formData.priority) });
     setFormData(emptyFormData);
   }
 
   return (
-    <form className="NewTodoForm" onSubmit={handleSubmit}>
-
+    <form
+      id={`todo-form-${initialFormData ? initialFormData.id : "new"}`}
+      className="NewTodoForm"
+      onSubmit={handleSubmit}
+    >
       <div className="mb-3">
         <input
           id="newTodo-title"
@@ -68,10 +69,11 @@ function TodoForm({ initialFormData, handleSave }) {
 
       <div className="mb-3 d-flex justify-content-between">
         <div className="w-75 d-flex justify-content-between">
-          <label htmlFor="newTodo-priority"
-            className="d-inline-flex">Priority:&nbsp;&nbsp;
+          <label htmlFor="newTodo-priority" className="d-inline-flex">
+            Priority:&nbsp;&nbsp;
           </label>
-          <select id="newTodo-priority"
+          <select
+            id="newTodo-priority"
             name="priority"
             value={formData.priority}
             onChange={handleChange}
@@ -86,7 +88,6 @@ function TodoForm({ initialFormData, handleSave }) {
           Gø!
         </button>
       </div>
-
     </form>
   );
 }

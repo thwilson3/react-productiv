@@ -24,28 +24,3 @@ exports[`TopTodo matches snapshot 1`] = `
   </div>
 </div>
 `;
-
-exports[`matches snapshot 1`] = `
-<div>
-  <div
-    class="Todo"
-  >
-    <div>
-      <b>
-        Make dinner
-      </b>
-       
-      <small>
-        (priority: 
-        1
-        )
-      </small>
-    </div>
-    <div>
-      <small>
-        Cook something healthy
-      </small>
-    </div>
-  </div>
-</div>
-`;
