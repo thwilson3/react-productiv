@@ -12,7 +12,7 @@ function Todo({todo}) {
 
   const {title, priority, description} = todo;
   return (
-      <div className="Todo">
+      <div id={`todo-${todo.id}`} className="Todo">
         <div><b>{title}</b> <small>(priority: {priority})</small></div>
         <div><small>{description}</small></div>
       </div>
