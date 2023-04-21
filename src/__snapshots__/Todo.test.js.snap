@@ -4,6 +4,7 @@ exports[`todo matches snapshot 1`] = `
 <div>
   <div
     class="Todo"
+    id="todo-1"
   >
     <div>
       <b>
