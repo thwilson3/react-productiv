@@ -4,7 +4,7 @@ import TodoForm from "./TodoForm";
 import { initialTodos } from "./App";
 
 
-describe("todo", function () {
+describe("TodoForm", function () {
     it("renders without crashing", function () {
         // this is a low-value test, but better than nothing
         render(<TodoForm />);
